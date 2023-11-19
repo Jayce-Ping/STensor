@@ -1,0 +1,567 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21607,        559]
+NotebookOptionsPosition[     16752,        456]
+NotebookOutlinePosition[     17280,        474]
+CellTagsIndexPosition[     17237,        471]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Get Started", "GuideTitle",
+ CellChangeTimes->{{3.909393412931862*^9, 3.909393413042781*^9}},
+ CellID->313988172,ExpressionUUID->"e1ee8261-f779-43e6-a28a-96eb41a5e59d"],
+
+Cell["Get Started with STensor", "GuideAbstract",
+ CellChangeTimes->{{3.909307637240569*^9, 3.9093076428249345`*^9}},
+ CellID->712585304,ExpressionUUID->"b604e005-3be2-413f-add0-627807f4b040"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Symbols", "GuideFunctionsSection",
+ CellChangeTimes->{{3.909307644171894*^9, 3.9093076621851645`*^9}, {
+  3.909307738236261*^9, 3.909307742700774*^9}},
+ CellID->306541579,ExpressionUUID->"03a7f068-dcd7-46a3-8845-24fecc09fced"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["STensor",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/STensor"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "9d2edf66-d4bd-422d-8e6f-29c80e20cace"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  TagBox[
+   RowBox[{"STensor", " ", "object", " "}],
+   EventHandlerTag[{"MouseClicked" :> SelectionMove[
+       EvaluationCell[], All, Cell], Method -> "Preemptive", PassEventsDown -> 
+     Automatic, PassEventsUp -> True}]]],ExpressionUUID->
+  "fe360a81-570b-44c4-9314-8d5e0dab7526"]
+}], "GuideText",
+ CellChangeTimes->{{3.9093081383402753`*^9, 3.9093081573608313`*^9}, {
+  3.9093102590280495`*^9, 3.9093102590280495`*^9}, {3.909388362190082*^9, 
+  3.909388395214798*^9}},
+ CellID->27969538,ExpressionUUID->"649fbba4-748d-4254-a3b4-e7925c85a274"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["CreateTensor",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/CreateTensor"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c40ac8e4-27e1-4161-a8df-4d4f38357a23",ExpressionUUID->
+  "2d1aba3c-0829-4e86-923d-1e708992b334"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{"create", " ", "STensor", " ", "object"}]],ExpressionUUID->
+  "3c4dc485-4f27-4acd-866f-1e1590958d36"]
+}], "GuideText",
+ CellChangeTimes->{{3.9093076643372345`*^9, 3.909307685717724*^9}, {
+  3.909308037283382*^9, 3.909308037283382*^9}, {3.9093102688292203`*^9, 
+  3.9093102688292203`*^9}},
+ CellID->126148639,ExpressionUUID->"1fc13e94-d0e0-4f32-9a88-523e819c4e91"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["STensorQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/STensorQ"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c5c6736a-1ff4-4e4e-8fcf-2d9846cbae62",ExpressionUUID->
+  "898778fd-7cd4-4ec2-949f-6f8397fae699"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "test", " ", "wheter", " ", "an", " ", "expression", " ", "is", " ", "a", 
+   " ", "STensor", " ", "object"}]],ExpressionUUID->
+  "c3fcd0cb-7ac6-4d16-ace2-463c1b3081bd"]
+}], "GuideText",
+ CellChangeTimes->{{3.909307692221942*^9, 3.9093077145062537`*^9}, {
+  3.909308040380891*^9, 3.909308040639187*^9}, {3.9093102707579794`*^9, 
+  3.9093102707579794`*^9}},
+ CellID->82318174,ExpressionUUID->"1db23887-fe99-4d89-aa02-ec948b06082c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["IsMetric",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/IsMetric"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "5173a258-6926-452b-a033-8feffe2eced1"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "an", " ", "option", " ", "for", " ", "CreateTensor", " ", "to", " ", 
+   "indicate", " ", "whether", " ", "a", " ", "tensor", " ", "is", " ", "a", 
+   " ", "metric", " ", "tensor"}]],ExpressionUUID->
+  "6d955561-cb34-4daa-9fa1-d4ece0340e3d"]
+}], "GuideText",
+ CellChangeTimes->{{3.909308080464399*^9, 3.9093081208420944`*^9}, {
+  3.909310272586303*^9, 3.909310272586303*^9}},
+ CellID->632833865,ExpressionUUID->"ed34386c-3107-44a9-9fd3-d1876cef2ed6"],
+
+Cell[CellGroupData[{
+
+Cell["\t", "GuideDelimiter",
+ CellID->315631352,ExpressionUUID->"28fa6c09-0b3d-4238-b895-eaa77cfb35f5"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Inverse",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/Inverse"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "500d3097-dee8-4ad8-bae0-1f5ab439a021"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "return", " ", "the", " ", "inverse", " ", "of", " ", "given", " ", 
+   "metric", " ", "tensor"}]],ExpressionUUID->
+  "c15ac240-4bdf-4fae-b19d-05a70b767b84"]
+}], "GuideText",
+ CellChangeTimes->{{3.909308026965536*^9, 3.9093080674061093`*^9}, {
+  3.9093081737181497`*^9, 3.909308174619009*^9}, {3.909310279628002*^9, 
+  3.9093103012203856`*^9}},
+ CellID->503197843,ExpressionUUID->"341c37ec-3ab1-4845-916f-1b0609c41e87"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Tr",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/Tr"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "6d5fa75d-831f-4304-b335-47308a0c3ac9"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{"return", " ", "the", " ", "trace", " ", "of", " ", "given", " ", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}], " ", "tensor"}]],ExpressionUUID->
+  "05aed225-e931-4c51-8d9d-24b9dfce7bbd"]
+}], "GuideText",
+ CellChangeTimes->{{3.9093081808560457`*^9, 3.909308200201356*^9}, {
+  3.909310317796568*^9, 3.909310317796568*^9}},
+ CellID->326249691,ExpressionUUID->"2fe4648d-76c0-4868-9815-79066e581df8"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["Symmetrize",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/Symmetrize"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "feffbebe-3758-4a5a-b8e1-2cb972e076d9"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "symmetrize", " ", "tensor", " ", "with", " ", "given", " ", "symmetry"}]],
+  ExpressionUUID->"a6e3011b-989c-4418-bd90-6ac98886dfa7"]
+}], "GuideText",
+ CellChangeTimes->{{3.90930821406308*^9, 3.909308247412966*^9}, {
+  3.909310325897931*^9, 3.909310325897931*^9}},
+ CellID->29038387,ExpressionUUID->"24ea04f9-6b35-4bb2-bdbc-04b04e4fe4b9"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["TensorRank",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/TensorRank"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "5e055c98-4435-41ad-82c6-1f83707bc7a8"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "return", " ", "the", " ", "rank", " ", "of", " ", "given", " ", 
+   "tensor"}]],ExpressionUUID->"0aeb99ad-bcf6-47ef-be41-811464f8c974"]
+}], "GuideText",
+ CellChangeTimes->{{3.9093082866763105`*^9, 3.9093082907864757`*^9}, {
+  3.909308401903963*^9, 3.9093084136148195`*^9}, {3.909310347585585*^9, 
+  3.909310347585585*^9}},
+ CellID->86272479,ExpressionUUID->"9fb7e0b9-47db-4d6f-8047-5228ae30fc9f"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["TensorSymmetry",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/TensorSymmetry"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "0370c014-7f40-4ad3-92a6-5ddcbe40e2e8"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "return", " ", "the", " ", "symmetry", " ", "of", " ", "given", " ", 
+   "tensor"}]],ExpressionUUID->"f1aed049-e1d1-4b47-8663-65b0567f6aa6"]
+}], "GuideText",
+ CellChangeTimes->{{3.9093084193416467`*^9, 3.9093084292016478`*^9}, {
+  3.909310360426094*^9, 3.909310360426094*^9}},
+ CellID->164444503,ExpressionUUID->"1256da28-9622-4e76-ad2b-b5d881c7e642"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\t", "GuideDelimiter",
+ CellID->103321951,ExpressionUUID->"1b496be7-f1c9-4b3e-a84b-49f639fcdc79"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["LineElement",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/LineElement"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c9567123-2e5a-4f82-9db1-ab27ff42346f",ExpressionUUID->
+  "3952a69e-2658-42a0-a976-575aa10957bb"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "calculate", " ", "the", " ", "line", " ", "element", " ", "of", " ", 
+   "given", " ", "metric"}]],ExpressionUUID->
+  "d63e9f91-ab94-44f6-8d59-e78cc9520383"]
+}], "GuideText",
+ CellChangeTimes->{{3.9093084561413493`*^9, 3.909308472023079*^9}, {
+  3.909310362553608*^9, 3.909310362553608*^9}},
+ CellID->21621871,ExpressionUUID->"97965249-2e2c-4af8-ac7b-a1731ea83b00"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["VolumeElement",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/VolumeElement"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"1b88ce08-7f7d-4b39-b6ce-edfea9a885b5",ExpressionUUID->
+  "76a759a0-decb-40c7-aa7a-f78956788bc1"],
+ " \[LongDash] ",
+ Cell[BoxData[
+  RowBox[{
+  "calculate", " ", "the", " ", "volume", " ", "element", " ", "of", " ", 
+   "given", " ", "metric"}]],ExpressionUUID->
+  "12fd17d5-9f34-41cc-b2cc-7be8ff3e9150"]
+}], "GuideText",
+ CellChangeTimes->{{3.909393817199463*^9, 3.909393840398926*^9}},
+ CellID->19612895,ExpressionUUID->"d861bc1f-c469-4f71-8535-4eb304077cc1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\t", "GuideDelimiter",
+ CellID->47728410,ExpressionUUID->"736f57a4-9e87-422f-a507-6cd606b99859"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["RiemmanTensor",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/RiemmanTensor"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "0bb7a367-a813-4593-afe7-9e7c757e25c1"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["RicciTensor",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/RicciTensor"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"64977f0c-7dd0-4b6d-9a00-cb0085357fb6",ExpressionUUID->
+  "c9d1d667-7d81-44f8-bd67-3437b62afd80"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["ChristoffelSymbol",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/ChristoffelSymbol"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"0ee2a01d-05cb-4750-bf21-0ca4b2ce4bc1",ExpressionUUID->
+  "ac355877-02d7-4216-87ea-95752268c06b"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["RicciScalar",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/RicciScalar"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"75d1ef5d-fdd6-43d4-8e04-69b5e65e438f",ExpressionUUID->
+  "dab27853-8486-45c4-8aaf-61f2d745ce4d"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["WeylTensor",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/WeylTensor"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"a10e85cb-ff6f-4c01-905a-5e3ded9ffc96",ExpressionUUID->
+  "019eab85-dce2-47f0-ace9-743d562bf9d0"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["EinsteinTensor",
+   BaseStyle->"Link",
+   ButtonData->"paclet:BowenPing/STensor/ref/EinsteinTensor"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"a4f1aa76-b241-4aca-b1c4-9cf40dce0796",ExpressionUUID->
+  "379ba6f5-a883-49cd-9329-e8223902f4da"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "9c5a4795-0e6c-4f54-8b0e-af4b328b6ad8"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "f66ac393-f526-4276-a058-ae0e5d0f0db2", 
+     "1f56581f-0fe9-4428-ae60-5a3a518c29c1"], $CellContext`cellobj$$ = 
+    CellObject[
+    "c034d7f8-8fa8-4adc-befd-0b4e1c0182f8", 
+     "d7b5c05c-d88a-4853-9e36-de2c99537201"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "c034d7f8-8fa8-4adc-befd-0b4e1c0182f8"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.90930778617712*^9, 3.909307801317758*^9}, {
+  3.909307835222643*^9, 3.9093078647543955`*^9}, {3.909310393899543*^9, 
+  3.9093104027210855`*^9}},
+ CellID->388362194,ExpressionUUID->"01e66c9f-6ae7-44bf-8ca6-6f447ba77940"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->618720094,ExpressionUUID->"4c02f299-4648-43e7-8dc4-6da859bde3cf"],
+
+Cell[TextData[ButtonBox["Basic Tensor Computation",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:BowenPing/STensor/tutorial/BasicTensorComputation"]], \
+"GuideTutorial",
+ CellChangeTimes->{{3.909377909134296*^9, 3.9093779321542473`*^9}},
+ CellID->41710814,ExpressionUUID->"4e84f4d7-5a48-4d98-821f-2d5a0a4a186e"],
+
+Cell[TextData[ButtonBox["Computation With Metric",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:BowenPing/STensor/tutorial/ComputationWithMetric"]], "GuideTutorial",
+ CellChangeTimes->{{3.909377934733062*^9, 3.909377951491643*^9}},
+ CellID->462929203,ExpressionUUID->"064ad8a9-b7ef-49f3-a299-f17ab312aba5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->173536301,ExpressionUUID->"e8916a43-f0c6-4dab-b492-0a5d9aac9a61"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->469816710,ExpressionUUID->"a5e282b2-e799-45b1-95b5-7f77474759d3"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->595210740,ExpressionUUID->"f21244aa-8fe8-4ecc-962f-c79b75845c68"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->321601049,ExpressionUUID->"22953932-95e4-4d96-8287-55f83df52bee"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->922526734,ExpressionUUID->"c2003b04-3e27-43aa-8b80-78d7081b3baf"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"513aeccf-764c-4fa2-a7df-7a520ebdf421"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"3ca92579-1c55-4db7-8f50-7246e4c5d9e6"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"60590cbc-3441-4967-83c0-490362784977"]
+}], "History",
+ CellID->126795518,ExpressionUUID->"f446968c-ad20-433e-8c87-930584424761"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->102156363,ExpressionUUID->"9f694dde-280a-418b-9c5c-464273c36908"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->500697955,ExpressionUUID->"55a8bcb3-df73-46fd-a74f-1659b3a05683"],
+
+Cell["BowenPing/STensor", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->185475995,ExpressionUUID->"e33d60a2-2e4d-488c-9a66-29632f2b9f1b"],
+
+Cell["BowenPing`STensor`", "Categorization",
+ CellLabel->"Context",
+ CellID->298128679,ExpressionUUID->"f7343842-49cf-4b73-8744-1f8558f62e64"],
+
+Cell["BowenPing/STensor/guide/GetStarted", "Categorization",
+ CellLabel->"URI",
+ CellID->803001516,ExpressionUUID->"46f581d3-b915-45ba-b38e-62f1df3555f0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->182339350,ExpressionUUID->"6c971084-6165-4906-9257-88f8805aeec7"],
+
+Cell["XXXX", "Keywords",
+ CellID->697072458,ExpressionUUID->"db98c654-bcb6-4619-8066-bc0a5a856613"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1141.2, 574.8},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules-><|"Paclet" -> "BowenPing/STensor"|>,
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (July 24, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"f66ac393-f526-4276-a058-ae0e5d0f0db2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 174, 2, 88, "GuideTitle",ExpressionUUID->"e1ee8261-f779-43e6-a28a-96eb41a5e59d",
+ CellID->313988172],
+Cell[757, 26, 192, 2, 29, "GuideAbstract",ExpressionUUID->"b604e005-3be2-413f-add0-627807f4b040",
+ CellID->712585304]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[986, 33, 232, 3, 72, "GuideFunctionsSection",ExpressionUUID->"03a7f068-dcd7-46a3-8845-24fecc09fced",
+ CellID->306541579],
+Cell[1221, 38, 893, 20, 26, "GuideText",ExpressionUUID->"649fbba4-748d-4254-a3b4-e7925c85a274",
+ CellID->27969538],
+Cell[2117, 60, 730, 17, 26, "GuideText",ExpressionUUID->"1fc13e94-d0e0-4f32-9a88-523e819c4e91",
+ CellID->126148639],
+Cell[2850, 79, 792, 19, 26, "GuideText",ExpressionUUID->"1db23887-fe99-4d89-aa02-ec948b06082c",
+ CellID->82318174],
+Cell[3645, 100, 813, 19, 26, "GuideText",ExpressionUUID->"ed34386c-3107-44a9-9fd3-d1876cef2ed6",
+ CellID->632833865],
+Cell[CellGroupData[{
+Cell[4483, 123, 103, 1, 27, "GuideDelimiter",ExpressionUUID->"28fa6c09-0b3d-4238-b895-eaa77cfb35f5",
+ CellID->315631352],
+Cell[4589, 126, 776, 18, 26, "GuideText",ExpressionUUID->"341c37ec-3ab1-4845-916f-1b0609c41e87",
+ CellID->503197843],
+Cell[5368, 146, 748, 17, 26, "GuideText",ExpressionUUID->"2fe4648d-76c0-4868-9815-79066e581df8",
+ CellID->326249691],
+Cell[6119, 165, 704, 17, 26, "GuideText",ExpressionUUID->"24ea04f9-6b35-4bb2-bdbc-04b04e4fe4b9",
+ CellID->29038387],
+Cell[6826, 184, 763, 18, 26, "GuideText",ExpressionUUID->"9fb7e0b9-47db-4d6f-8047-5228ae30fc9f",
+ CellID->86272479],
+Cell[7592, 204, 725, 17, 26, "GuideText",ExpressionUUID->"1256da28-9622-4e76-ad2b-b5d881c7e642",
+ CellID->164444503]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8354, 226, 103, 1, 27, "GuideDelimiter",ExpressionUUID->"1b496be7-f1c9-4b3e-a84b-49f639fcdc79",
+ CellID->103321951],
+Cell[8460, 229, 734, 18, 26, "GuideText",ExpressionUUID->"97965249-2e2c-4af8-ac7b-a1731ea83b00",
+ CellID->21621871],
+Cell[9197, 249, 689, 17, 26, "GuideText",ExpressionUUID->"d861bc1f-c469-4f71-8535-4eb304077cc1",
+ CellID->19612895]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9923, 271, 102, 1, 27, "GuideDelimiter",ExpressionUUID->"736f57a4-9e87-422f-a507-6cd606b99859",
+ CellID->47728410],
+Cell[10028, 274, 3733, 91, 48, "InlineGuideFunctionListing",ExpressionUUID->"01e66c9f-6ae7-44bf-8ca6-6f447ba77940",
+ CellID->388362194]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13810, 371, 118, 1, 74, "GuideTutorialsSection",ExpressionUUID->"4c02f299-4648-43e7-8dc4-6da859bde3cf",
+ CellID->618720094],
+Cell[13931, 374, 310, 6, 24, "GuideTutorial",ExpressionUUID->"4e84f4d7-5a48-4d98-821f-2d5a0a4a186e",
+ CellID->41710814],
+Cell[14244, 382, 305, 5, 24, "GuideTutorial",ExpressionUUID->"064ad8a9-b7ef-49f3-a299-f17ab312aba5",
+ CellID->462929203]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14586, 392, 190, 2, 74, "GuideMoreAboutSection",ExpressionUUID->"e8916a43-f0c6-4dab-b492-0a5d9aac9a61",
+ CellID->173536301],
+Cell[14779, 396, 105, 1, 24, "GuideMoreAbout",ExpressionUUID->"a5e282b2-e799-45b1-95b5-7f77474759d3",
+ CellID->469816710],
+Cell[14887, 399, 105, 1, 24, "GuideMoreAbout",ExpressionUUID->"f21244aa-8fe8-4ecc-962f-c79b75845c68",
+ CellID->595210740]
+}, Open  ]],
+Cell[15007, 403, 124, 1, 74, "GuideRelatedLinksSection",ExpressionUUID->"22953932-95e4-4d96-8287-55f83df52bee",
+ CellID->321601049],
+Cell[CellGroupData[{
+Cell[15156, 408, 110, 1, 72, "MetadataSection",ExpressionUUID->"c2003b04-3e27-43aa-8b80-78d7081b3baf",
+ CellID->922526734],
+Cell[15269, 411, 473, 11, 26, "History",ExpressionUUID->"f446968c-ad20-433e-8c87-930584424761",
+ CellID->126795518],
+Cell[CellGroupData[{
+Cell[15767, 426, 122, 1, 21, "CategorizationSection",ExpressionUUID->"9f694dde-280a-418b-9c5c-464273c36908",
+ CellID->102156363],
+Cell[15892, 429, 133, 2, 70, "Categorization",ExpressionUUID->"55a8bcb3-df73-46fd-a74f-1659b3a05683",
+ CellID->500697955],
+Cell[16028, 433, 145, 2, 70, "Categorization",ExpressionUUID->"e33d60a2-2e4d-488c-9a66-29632f2b9f1b",
+ CellID->185475995],
+Cell[16176, 437, 142, 2, 70, "Categorization",ExpressionUUID->"f7343842-49cf-4b73-8744-1f8558f62e64",
+ CellID->298128679],
+Cell[16321, 441, 154, 2, 70, "Categorization",ExpressionUUID->"46f581d3-b915-45ba-b38e-62f1df3555f0",
+ CellID->803001516]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[16512, 448, 110, 1, 21, "KeywordsSection",ExpressionUUID->"6c971084-6165-4906-9257-88f8805aeec7",
+ CellID->182339350],
+Cell[16625, 451, 99, 1, 70, "Keywords",ExpressionUUID->"db98c654-bcb6-4619-8066-bc0a5a856613",
+ CellID->697072458]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

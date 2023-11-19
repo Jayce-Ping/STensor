@@ -1,0 +1,1525 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     57337,       1517]
+NotebookOptionsPosition[     47098,       1299]
+NotebookOutlinePosition[     47884,       1325]
+CellTagsIndexPosition[     47804,       1320]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["SCoordinateTransform", "ObjectName",
+ CellID->161316280,ExpressionUUID->"bad74753-be64-43b8-8a9e-88e6964ab593"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"8dcc9b18-7c2a-4386-af1a-b89b204afc40"],
+ Cell[BoxData[
+  RowBox[{
+   ButtonBox["SCoordinateTransform",
+    BaseStyle->"Link",
+    ButtonData->"paclet:BowenPingSTensor/ref/SCoordinateTransform"], "[", 
+   RowBox[{
+    StyleBox["T",
+     FontSlant->"Italic"], 
+    StyleBox[",",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["tragetCods",
+     FontSlant->"Italic"], ",", 
+    StyleBox["Transformation",
+     FontSlant->"Italic"], 
+    StyleBox[",",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["invTransformation",
+     FontSlant->"Italic"]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "7da422d7-ee91-4924-a50d-e398a7cbae37"],
+ "\[LineSeparator]do coordinate transformation to ",
+ Cell[BoxData[
+  StyleBox["tragetCods", "TI",
+   FontSlant->"Italic"]], "InlineFormula",ExpressionUUID->
+  "29e30c69-064e-4511-954c-0c6deea601a9"],
+ " on ",
+ Cell[BoxData[
+  StyleBox["T", "TI"]], "InlineFormula",ExpressionUUID->
+  "ec1ca458-56ae-4241-94e7-d125ddab413d"],
+ ". \n",
+ Cell["   ", "ModInfo",ExpressionUUID->"ece343a0-a333-4680-9d83-1710d8ef6b2f"],
+ Cell[BoxData[
+  RowBox[{
+   ButtonBox["SCoordinateTransform",
+    BaseStyle->"Link",
+    ButtonData->"paclet:BowenPingSTensor/ref/SCoordinateTransform"], "[", 
+   RowBox[{
+    StyleBox["T",
+     FontSlant->"Italic"], 
+    StyleBox[",",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["tragetCods",
+     FontSlant->"Italic"], 
+    StyleBox[",",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     SubscriptBox[
+      StyleBox["cod", "TI"], 
+      StyleBox["1", "TR"]], " ", "\[Rule]", " ", 
+     SubscriptBox[
+      StyleBox["cod", "TI"], 
+      StyleBox["2", "TR"]]}]}], "]"}]], "InlineFormula",ExpressionUUID->
+  "25488d8e-10ac-4c53-9d46-91553541531b"],
+ "\[LineSeparator]do coordinate transformation from ",
+ StyleBox["cod1",
+  FontSlant->"Italic"],
+ " to ",
+ StyleBox["cod2",
+  FontSlant->"Italic"],
+ "."
+}], "Usage",
+ CellChangeTimes->{{3.895607437644255*^9, 3.895607437842286*^9}, {
+  3.895609648427848*^9, 3.8956097153089876`*^9}, {3.8956097808053102`*^9, 
+  3.8956097931536307`*^9}},
+ CellID->341166333,ExpressionUUID->"b0eba84e-214f-4ebc-af16-a3d52949dbf7"],
+
+Cell[TextData[{
+ StyleBox["Transformation",
+  FontSlant->"Italic"],
+ " and ",
+ StyleBox["invTransformation",
+  FontSlant->"Italic"],
+ " are both pure functions, formally as ",
+ ButtonBox["CoordinateTransformData",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/CoordinateTransformData"],
+ "[",
+ StyleBox["t",
+  FontSlant->"Italic"],
+ ", \"Mapping\"] gives."
+}], "Notes",
+ CellChangeTimes->{{3.8956074896767654`*^9, 3.8956074917340403`*^9}, {
+  3.8956477257953634`*^9, 3.8956478700363955`*^9}, {3.8956481876465464`*^9, 
+  3.8956481915289297`*^9}},
+ CellID->37865287,ExpressionUUID->"3afad7ea-76c5-4ce4-a9df-d00a57f36091"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  SubscriptBox["cod", "1"]], "InlineFormula",
+  FormatType->StandardForm,ExpressionUUID->
+  "169756e0-594b-47ed-950f-3314e94abea9"],
+ "  and  ",
+ Cell[BoxData[
+  SubscriptBox["cod", "2"]], "InlineFormula",
+  FormatType->StandardForm,ExpressionUUID->
+  "61059043-9395-41b1-bde9-68e0fe5ebf11"],
+ " are valid coordinate system available from ",
+ ButtonBox["CoordinateChartData",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/CoordinateChartData"],
+ "."
+}], "Notes",
+ CellChangeTimes->{{3.8956074896767654`*^9, 3.8956074917340403`*^9}, {
+  3.8956477257953634`*^9, 3.8956479038928356`*^9}, {3.8956480389586983`*^9, 
+  3.8956481187028446`*^9}},
+ CellID->238140063,ExpressionUUID->"f1ae2d22-4197-4c5e-b2aa-8f8e70a130f2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Tech Notes",
+ Cell[BoxData[
+  TemplateBox[{"TechNotes", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Insert links to related tech notes.", "MoreInfoText"], BaseStyle -> 
+       "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "5ef5c20c-d118-45ba-868f-c6ae2b602737"]
+}], "TechNotesSection",
+ CellID->500275698,ExpressionUUID->"8fdadcbc-9eb4-454c-aa02-5f7550fc26e3"],
+
+Cell["XXXX", "Tutorials",
+ CellID->19077243,ExpressionUUID->"c2e7d9fe-bb9b-415c-86aa-fb8e11e0d4d0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Related Links",
+ Cell[BoxData[
+  TemplateBox[{"RelatedLinks", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related page, including web pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "4e2d1b08-de5a-4198-9981-44b27876820e"]
+}], "RelatedLinksSection",
+ CellID->187785241,ExpressionUUID->"07d4f34a-1ea4-4b00-a489-fc774d321bc5"],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->171127232,ExpressionUUID->"747e489f-8f6d-4c28-86b8-02a42af19fd9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "See Also",
+ Cell[BoxData[
+  TemplateBox[{"SeeAlso", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related reference (function) pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b88e1ee8-6569-4d0e-b067-6c935cf7b8fb"]
+}], "SeeAlsoSection",
+ CellID->151149780,ExpressionUUID->"a816ef61-ed7a-4795-a26c-6c39719c857c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["CoordinateTransform",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/CoordinateTransform"]], "InlineSeeAlsoFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "55ddedfe-9d3c-437d-aa1e-da4537e00eb4"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["CoordinateTransformData",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/CoordinateTransformData"]], "InlineSeeAlsoFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"5fe54fe8-752e-45a5-bcf9-291a2dae10ab",ExpressionUUID->
+  "4a3f33c3-93b6-42d8-a3f4-d01b6feeaba5"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["CoordinateChartData",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/CoordinateChartData"]], "InlineSeeAlsoFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"5e4b4645-b5f0-4cb0-80e0-a2ad027ccd08",ExpressionUUID->
+  "608f3747-d3c9-41d7-af14-04943d1eb903"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "f12f3bcb-5e8b-4149-babd-a08efcf86aa2"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "9993d136-7fcc-4187-aa74-063eb81dfb40", 
+     "38dc3d82-b3ef-4fe0-b4f5-1907484860f1"], $CellContext`cellobj$$ = 
+    CellObject[
+    "3fbf64c6-ab05-47c3-80f7-5ce78c00486b", 
+     "b3c67949-398d-4836-bb2d-3e1e606cb4a6"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "3fbf64c6-ab05-47c3-80f7-5ce78c00486b"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.895607478761821*^9, 3.895607511109168*^9}, {
+  3.895648258110733*^9, 3.8956482768856544`*^9}},
+ CellID->91294115,ExpressionUUID->"95fc9878-6c04-408a-9487-31fbd894b2a7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "MoreAboutSection",
+ CellChangeTimes->{{3.843042374232973*^9, 3.843042375545676*^9}},
+ CellID->545024130,ExpressionUUID->"4cf694e0-b110-4c23-a976-ec5891e1e053"],
+
+Cell["XXXX", "MoreAbout",
+ CellID->42652149,ExpressionUUID->"32ac0169-a8b9-44d4-a31a-78cc461ab73a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Examples Initialization",
+ Cell[BoxData[
+  TemplateBox[{"ExamplesInitialization", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Input that is to be evaluated before any examples are run, e.g. \
+Needs[\[Ellipsis]].", "MoreInfoText"], BaseStyle -> "IFrameBox"]], 
+     "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "1e29d641-2e88-4876-b763-ceacef0b559d"]
+}], "ExamplesInitializationSection",
+ CellID->349739102,ExpressionUUID->"e8bb706c-e05b-4425-81f3-e0854a07cd21"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<BowenPing`STensor`\>\"", 
+  "]"}]], "ExampleInitialization",
+ CellID->44445376,ExpressionUUID->"53920514-eedc-4290-8745-a719c975da45"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox[
+      RowBox[{"Basic", " ", "Examples"}], "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->161506670,ExpressionUUID->"d673efde-c1be-4195-b961-bf819be0d8a9"],
+
+Cell["\<\
+Create some tensor in 3D Euclidean space in Cartesian Coordinates first:\
+\>", "ExampleText",
+ CellChangeTimes->{{3.895609922254283*^9, 3.895609954752781*^9}},
+ CellID->670469960,ExpressionUUID->"86d15f0c-702e-4217-a25c-54262501c696"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"car3", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sph3", "=", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"CreateTensor", "[", 
+    RowBox[{"\"\<g\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "2"}], "}"}], ",", "car3", ",", 
+     RowBox[{"IdentityMatrix", "[", "3", "]"}], ",", 
+     RowBox[{"IsMetric", "->", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T", "=", 
+   RowBox[{"CreateTensor", "[", 
+    RowBox[{"\"\<T\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0"}], "}"}], ",", "car3", ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.895609956020505*^9, 3.8956100441747484`*^9}, {
+   3.895610712944312*^9, 3.8956107456307964`*^9}, 3.895611010368575*^9},
+ CellLabel->"In[25]:=",
+ CellID->262388046,ExpressionUUID->"7ec2c0a0-e819-494d-9fb1-88690fe8171e"],
+
+Cell[TextData[{
+ "If we want to transform from Cartesian Coordinates to Spherical Coordinates \
+in 3D Euclidean space, we can use ",
+ ButtonBox["CoordinateTransformData",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/CoordinateTransformData"],
+ " to get transformation:"
+}], "ExampleText",
+ CellChangeTimes->{{3.8956098539854574`*^9, 3.8956098989766846`*^9}, {
+  3.8956099371302376`*^9, 3.895609937230791*^9}, {3.8956107528672347`*^9, 
+  3.8956107817410216`*^9}},
+ CellID->271748911,ExpressionUUID->"2bbb5633-0d0a-46b1-ae75-45915d8c0b1c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ts", "=", 
+   RowBox[{"CoordinateTransformData", "[", 
+    RowBox[{
+     RowBox[{"\"\<Cartesian\>\"", "->", "\"\<Spherical\>\""}], ",", 
+     "\"\<Mapping\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"invts", "=", 
+   RowBox[{"CoordinateTransformData", "[", 
+    RowBox[{
+     RowBox[{"\"\<Spherical\>\"", "->", "\"\<Cartesian\>\""}], ",", 
+     "\"\<Mapping\>\""}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8956107893270016`*^9, 3.8956108062183485`*^9}, {
+  3.895610866384368*^9, 3.8956108799370832`*^9}},
+ CellLabel->"In[29]:=",
+ CellID->180953804,ExpressionUUID->"4e5a23d9-5c1d-49dc-aa67-cfe3b2e950cc"],
+
+Cell["ts and invts are both pure functions, remember that.", "ExampleText",
+ CellChangeTimes->{{3.8956108187399144`*^9, 3.8956108368172393`*^9}},
+ CellID->277801903,ExpressionUUID->"f7911e35-d432-4752-a6ae-a802a21e3ea4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCoordinateTransform", "[", 
+  RowBox[{"T", ",", "sph3", ",", "ts", ",", "invts"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8956108455650682`*^9, 3.895610874148612*^9}},
+ CellLabel->"In[31]:=",
+ CellID->1010323566,ExpressionUUID->"4ae23a46-d351-45bd-9e4b-29bffe4a253c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["STensor",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             
+             RasterBox[{{{1., 0., 0.}, {0., 1., 1.}}, {{0., 1., 1.}, {1., 0., 
+              0.}}}, {{0, 0}, {2, 2}}, {0, 1}], Frame -> Automatic, 
+             FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], 
+             Method -> {
+              "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic,
+                "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Symbol: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"T\"", "SummaryItem"], "\[InvisibleSpace]", 
+                 TagBox["\[SpanFromLeft]", "SummaryItemAnnotation"]}]}, {
+               RowBox[{
+                 TagBox["\"Rank: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{"{", 
+                    RowBox[{"1", ",", "0"}], "}"}], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             
+             RasterBox[{{{1., 0., 0.}, {0., 1., 1.}}, {{0., 1., 1.}, {1., 0., 
+              0.}}}, {{0, 0}, {2, 2}}, {0, 1}], Frame -> Automatic, 
+             FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], 
+             Method -> {
+              "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic,
+                "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Symbol: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"T\"", "SummaryItem"], "\[InvisibleSpace]", 
+                 TagBox["\[SpanFromLeft]", "SummaryItemAnnotation"]}]}, {
+               RowBox[{
+                 TagBox["\"Rank: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{"{", 
+                    RowBox[{"1", ",", "0"}], "}"}], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Symmetry: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{"{", "}"}], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Coordinate System: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{"{", 
+                    RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], 
+                  "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Components: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{"{", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"r", " ", 
+                    RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+                    RowBox[{"Sin", "[", "\[Theta]", "]"}]}], 
+                    SqrtBox[
+                    SuperscriptBox["r", "2"]]], ",", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+                    RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+                    RowBox[{"Sin", "[", "\[Theta]", "]"}]}], 
+                    SqrtBox[
+                    RowBox[{
+                    SuperscriptBox["r", "2"], " ", 
+                    SuperscriptBox[
+                    RowBox[{"Sin", "[", "\[Theta]", "]"}], "2"]}]]], ",", 
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+                    RowBox[{"Sin", "[", "\[Phi]", "]"}]}], "r"]}]}], "}"}], 
+                  "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  BowenPing`STensor`STensor[<|
+   "Symbol" -> "T", "Rank" -> {1, 0}, "Symmetry" -> {}, 
+    "Coordinate System" -> {$CellContext`r, $CellContext`\[Theta], \
+$CellContext`\[Phi]}, 
+    "Components" -> {$CellContext`r ($CellContext`r^2)^Rational[-1, 2] 
+      Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+      Cos[$CellContext`\[Theta]] Cos[$CellContext`\[Phi]] 
+      Sin[$CellContext`\[Theta]] ($CellContext`r^2 
+        Sin[$CellContext`\[Theta]]^2)^Rational[-1, 2], -$CellContext`r^(-1) 
+      Csc[$CellContext`\[Theta]] Sin[$CellContext`\[Phi]]}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.8956108752469625`*^9, 3.8956108824975576`*^9}, 
+   3.90092086181146*^9},
+ CellLabel->"Out[31]=",
+ CellID->3037037,ExpressionUUID->"e6466a8f-a747-491d-8809-4c4933872b75"]
+}, Open  ]],
+
+Cell["\<\
+We can get the components, and simply them by Spherical Coordinates \
+conditions:\
+\>", "ExampleText",
+ CellChangeTimes->{{3.8956108926445737`*^9, 3.895610923399892*^9}},
+ CellID->416606964,ExpressionUUID->"9af17a16-7e54-42ce-a67d-3f371317fd48"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SCoordinateTransform", "[", 
+      RowBox[{"T", ",", "sph3", ",", "ts", ",", "invts"}], "]"}], "[", 
+     "\"\<Components\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{"r", ">", "0"}], "&&", 
+     RowBox[{"0", "<=", "\[Theta]", "<", "Pi"}]}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.895610925190545*^9, 3.8956109579338923`*^9}, {
+  3.895610993314513*^9, 3.895610998165468*^9}},
+ CellLabel->"In[32]:=",
+ CellID->182899575,ExpressionUUID->"1c32c769-076b-407f-8c2a-aa6d0d90108c"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}]}]},
+      {
+       FractionBox[
+        RowBox[{
+         RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+         RowBox[{"Cos", "[", "\[Phi]", "]"}]}], "r"]},
+      {
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+          RowBox[{"Sin", "[", "\[Phi]", "]"}]}], "r"]}]}
+     },
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.8956109499174156`*^9, 3.8956109582190046`*^9}, 
+   3.900920862979463*^9},
+ CellLabel->"Out[32]//MatrixForm=",
+ CellID->302853981,ExpressionUUID->"e0b6b09c-ddc1-489b-b34e-d14095ee52f3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SCoordinateTransform", "[", 
+      RowBox[{"g", ",", "sph3", ",", "ts", ",", "invts"}], "]"}], "[", 
+     "\"\<Components\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{"r", ">", "0"}], "&&", 
+     RowBox[{"0", "<=", "\[Theta]", "<", "Pi"}]}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.895610981451239*^9, 3.895610981537278*^9}},
+ CellLabel->"In[33]:=",
+ CellID->716899714,ExpressionUUID->"383e7eca-ae5a-435a-bdd6-d0f8447a5e9c"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "0", "0"},
+     {"0", 
+      SuperscriptBox["r", "2"], "0"},
+     {"0", "0", 
+      RowBox[{
+       SuperscriptBox["r", "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], "2"]}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.895610981790119*^9, 3.9009208644414587`*^9},
+ CellLabel->"Out[33]//MatrixForm=",
+ CellID->416156370,ExpressionUUID->"47c915ab-2480-4857-b331-4b9924efee2a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "6f2c3119-29eb-4335-bfe5-5cbbd13b273b"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->47463216,ExpressionUUID->"a30679a7-68d5-45d3-97c6-9a6b5c6082bb"],
+
+Cell[TextData[{
+ "If the transformation has been recorded in ",
+ ButtonBox["CoordinateTransformData",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/CoordinateTransformData"],
+ " with names, you can directly use them as input:"
+}], "ExampleText",
+ CellChangeTimes->{{3.8956110395449224`*^9, 3.8956110858625126`*^9}},
+ CellID->92240086,ExpressionUUID->"1b41f2b5-05c0-4120-aa5d-9bb7418c7df8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SCoordinateTransform", "[", 
+      RowBox[{"T", ",", "sph3", ",", 
+       RowBox[{"\"\<Cartesian\>\"", "->", "\"\<Spherical\>\""}]}], "]"}], 
+     "[", "\"\<Components\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{"r", ">", "0"}], "&&", 
+     RowBox[{"0", "<=", "\[Theta]", "<", "Pi"}]}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.89561110103642*^9, 3.8956111191399546`*^9}},
+ CellLabel->"In[34]:=",
+ CellID->70938864,ExpressionUUID->"3a100fb6-5623-4e58-bee7-21aca2a77609"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}]}]},
+      {
+       FractionBox[
+        RowBox[{
+         RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+         RowBox[{"Cos", "[", "\[Phi]", "]"}]}], "r"]},
+      {
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+          RowBox[{"Sin", "[", "\[Phi]", "]"}]}], "r"]}]}
+     },
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.8956111087738676`*^9, 3.895611119635621*^9}, 
+   3.9009208668634586`*^9},
+ CellLabel->"Out[34]//MatrixForm=",
+ CellID->295339603,ExpressionUUID->"bea99fba-295a-4c1d-9b37-bb41b25f40c9"]
+}, Open  ]],
+
+Cell["\<\
+And Hyperspherical includes 3D spherical, the dimension is determined by the \
+dimension of coordinate system:\
+\>", "ExampleText",
+ CellChangeTimes->{{3.8956111944303694`*^9, 3.8956112295161695`*^9}},
+ CellID->706544,ExpressionUUID->"6f65c24f-e0f0-40e1-91f9-f40bef61875c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SCoordinateTransform", "[", 
+      RowBox[{"g", ",", "sph3", ",", 
+       RowBox[{"\"\<Cartesian\>\"", "->", "\"\<Hyperspherical\>\""}]}], "]"}],
+      "[", "\"\<Components\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{"r", ">", "0"}], "&&", 
+     RowBox[{"0", "<=", "\[Theta]", "<", "Pi"}]}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{
+  3.895611128496763*^9, {3.8956111857087135`*^9, 3.8956111889395065`*^9}},
+ CellLabel->"In[35]:=",
+ CellID->409582919,ExpressionUUID->"999bf59b-a4c0-40f9-9f9a-c863cd956d23"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "0", "0"},
+     {"0", 
+      SuperscriptBox["r", "2"], "0"},
+     {"0", "0", 
+      RowBox[{
+       SuperscriptBox["r", "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], "2"]}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.895611129062993*^9, 3.8956111900319014`*^9, 
+  3.90092086806136*^9},
+ CellLabel->"Out[35]//MatrixForm=",
+ CellID->168060441,ExpressionUUID->"acbe777e-3069-4a66-8963-44084a76f988"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "More Examples",
+ Cell[BoxData[
+  TemplateBox[{"MoreExamples", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Extended examples in standardized sections.", "MoreInfoText"], 
+       BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b1c57615-7872-4401-8904-f15f2d1731f6"]
+}], "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->214518045,ExpressionUUID->"df09de95-2a13-424e-97b0-017fe5512c1a"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "6ce48632-deee-425a-8ff7-537061b81ef0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->415503623,ExpressionUUID->"8e469e2f-c530-4e8f-b197-908cf928aedb"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "6554dfbb-09aa-4b5b-b03f-380654b820b8"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->22175542,ExpressionUUID->"19d93b37-7c5b-4020-b057-21021034dc5e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "1b7fae19-01e9-4a63-9d94-1b0a612c25d6"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->480369685,ExpressionUUID->"e5bc17e8-6a0c-4605-80a6-63dedbbebd0f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "e37f2898-eec2-415a-be50-37f24b4d32f8"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->49182752,ExpressionUUID->"60dd2e87-5468-4d29-80b1-bf1c6c7cd5c4"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "f99f253f-7316-4590-a2c3-396dd0d30728"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->453902441,ExpressionUUID->"dd657672-b5dc-4686-ba02-c386f62d1636"]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "8856ea2d-56c9-4cf3-8771-a5091e49a5ca"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->157147930,ExpressionUUID->"f1828a64-c5e8-455a-bd41-3e484725bf8e"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "9e311889-f7e4-4111-be72-030c0deaba9f"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->204876183,ExpressionUUID->"85165fc6-bc21-42ee-9508-fbe4705da2e1"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "fc86dd4e-a50b-4576-94d1-7a149f6d8fdc"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->48309787,ExpressionUUID->"6ac84d47-f8de-46c0-b107-9077b1ee9e6e"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "d744c129-3d48-4a1c-9fea-eb4feb2702a0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->209496844,ExpressionUUID->"2e6146ee-1e2d-476c-9090-421aaa560c85"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "c320ad96-6a72-4241-8d68-5af22b523f5e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->108399697,ExpressionUUID->"354fef2e-24d9-44a3-b865-3e7da9cba3f9"],
+
+Cell[CellGroupData[{
+
+Cell["FLRW Conformally Flat", "ExampleSubsection",
+ CellChangeTimes->{{3.8956115777574778`*^9, 3.8956115920633163`*^9}},
+ CellID->109400453,ExpressionUUID->"22978963-ef96-4b05-9d96-ad97b786a779"],
+
+Cell["\<\
+Homogeneous and isotropic observer, FLRW Metric is conformally flat.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.895611482335402*^9, 3.8956115640473948`*^9}, {
+  3.895619988642358*^9, 3.8956200016072073`*^9}, {3.8956216021030874`*^9, 
+  3.8956216022911115`*^9}},
+ CellID->104382750,ExpressionUUID->"2ccb6f3a-f1d4-4287-8b95-129174c75975"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"org", "=", 
+   RowBox[{"{", 
+    RowBox[{"\[Eta]", ",", "\[Chi]", ",", "\[Theta]", ",", "\[Phi]"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"trg", "=", 
+   RowBox[{"{", 
+    RowBox[{"\[Tau]", ",", "r", ",", "\[Theta]", ",", "\[CurlyPhi]"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"CreateTensor", "[", 
+    RowBox[{"\"\<g\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "2"}], "}"}], ",", "org", ",", 
+     RowBox[{"DiagonalMatrix", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"a", "[", "\[Eta]", "]"}], "^", "2"}], 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "1", ",", 
+         RowBox[{
+          RowBox[{"Sin", "[", "\[Chi]", "]"}], "^", "2"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Chi]", "]"}], "^", "2"}], 
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Theta]", "]"}], "^", "2"}]}]}], "}"}]}], 
+      "]"}], ",", 
+     RowBox[{"IsMetric", "->", "True"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.895611606588413*^9, 3.8956116259219112`*^9}, {
+   3.8956118187872763`*^9, 3.895611900127632*^9}, {3.8956119386131697`*^9, 
+   3.895612054893276*^9}, {3.8956122631801543`*^9, 3.8956123745148935`*^9}, {
+   3.89561243488684*^9, 3.895612445182227*^9}, {3.8956135252108793`*^9, 
+   3.895613528027671*^9}, {3.895613911014121*^9, 3.895613961375515*^9}, {
+   3.8956140937477207`*^9, 3.8956141444651184`*^9}, 3.89561420368285*^9, {
+   3.895614465912738*^9, 3.895614514900055*^9}, {3.8956151302994795`*^9, 
+   3.895615168051259*^9}, {3.895615203426404*^9, 3.8956152194677453`*^9}, {
+   3.8956154373878117`*^9, 3.895615488404291*^9}, 3.895615521200368*^9, {
+   3.8956206534648247`*^9, 3.895620752442809*^9}, {3.8956210540351534`*^9, 
+   3.895621058026703*^9}, 3.8956214967045207`*^9},
+ CellLabel->"In[83]:=",
+ CellID->503834814,ExpressionUUID->"b146fe68-7a69-445e-9897-b5b8679f0484"],
+
+Cell["\<\
+g is FLRW tensor, its Weyl Tensor vanishing means it is conformally flat:\
+\>", "ExampleText",
+ CellChangeTimes->{{3.8956155244134226`*^9, 3.895615551473804*^9}},
+ CellID->627297442,ExpressionUUID->"caf937c5-d83a-44b5-a1e9-6cb53d77efb0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{"WeylTensor", "[", "g", "]"}], "]"}], "[", 
+  "\"\<Non-zero Components\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8956155524360685`*^9, 3.8956155921990147`*^9}},
+ CellLabel->"In[15]:=",
+ CellID->573061561,ExpressionUUID->"601b1570-fa9f-427c-988f-e7adf09e6cab"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.895615563871045*^9, 3.895615592550973*^9}, 
+   3.895620782842313*^9, 3.895621060846298*^9},
+ CellLabel->"Out[15]=",
+ CellID->365844551,ExpressionUUID->"ac9c6422-7945-4720-80ac-4cdd5c19d45d"]
+}, Open  ]],
+
+Cell["Find the transformation to Minkowski metric:", "ExampleText",
+ CellChangeTimes->{{3.8956156040098004`*^9, 3.8956156186517987`*^9}},
+ CellID->353405104,ExpressionUUID->"99fb445c-75bc-4978-b666-1b977ab3af48"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ts", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Tan", "[", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "+", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "2"], "]"}], "+", 
+         RowBox[{"Tan", "[", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "-", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "2"], "]"}]}], ")"}], "2"], 
+      ",", 
+      FractionBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Tan", "[", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "+", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "2"], "]"}], "-", 
+         RowBox[{"Tan", "[", 
+          FractionBox[
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "-", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "2"], "]"}]}], ")"}], "2"], 
+      ",", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", "4", "]"}], "]"}]}], "}"}], "&"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"invts", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "+", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "+", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "-", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "+", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "-", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "-", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", "4", "]"}], "]"}]}], "}"}], "&"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"comp", "=", 
+   RowBox[{
+    RowBox[{"SCoordinateTransform", "[", 
+     RowBox[{"g", ",", "trg", ",", "ts", ",", "invts"}], "]"}], "[", 
+    "\"\<Components\>\"", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.895611606588413*^9, 3.8956116259219112`*^9}, {
+   3.8956118187872763`*^9, 3.895611900127632*^9}, {3.8956119386131697`*^9, 
+   3.895612054893276*^9}, {3.8956122631801543`*^9, 3.8956123745148935`*^9}, {
+   3.89561243488684*^9, 3.895612445182227*^9}, {3.8956135252108793`*^9, 
+   3.895613528027671*^9}, {3.895613911014121*^9, 3.895613961375515*^9}, {
+   3.8956140937477207`*^9, 3.8956141444651184`*^9}, 3.89561420368285*^9, {
+   3.895614465912738*^9, 3.895614514900055*^9}, {3.8956151302994795`*^9, 
+   3.895615168051259*^9}, {3.895615203426404*^9, 3.8956152194677453`*^9}, {
+   3.8956154373878117`*^9, 3.895615488404291*^9}, 3.895615521200368*^9, {
+   3.895620833793832*^9, 3.89562084770148*^9}, {3.8956208781046233`*^9, 
+   3.895620978531044*^9}, {3.895621090030837*^9, 3.895621121136354*^9}, {
+   3.8956213067608843`*^9, 3.895621337835868*^9}, {3.895621384186205*^9, 
+   3.895621400308463*^9}, {3.8956214493041797`*^9, 3.895621486989713*^9}, {
+   3.895621575893507*^9, 3.8956216945012283`*^9}, {3.895621747982277*^9, 
+   3.8956217692219777`*^9}, {3.8956218183028812`*^9, 3.895621877381248*^9}, {
+   3.8956219381358995`*^9, 3.8956219441204343`*^9}},
+ CellLabel->"In[120]:=",
+ CellID->60125417,ExpressionUUID->"1f438c7e-a44c-424f-8051-ed92ddb273cc"],
+
+Cell["\<\
+After dividing the conformal scalar factor, we got 4D Minkowski metric in \
+spherical coordinate system.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.8956218803585587`*^9, 3.895621915847703*^9}},
+ CellID->28024992,ExpressionUUID->"00e9f17a-1280-4f47-9d12-bd1a75864513"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"comp", "/", 
+    RowBox[{"comp", "[", 
+     RowBox[{"[", 
+      RowBox[{"2", ",", "2"}], "]"}], "]"}]}], "//", "FullSimplify"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.895611606588413*^9, 3.8956116259219112`*^9}, {
+   3.8956118187872763`*^9, 3.895611900127632*^9}, {3.8956119386131697`*^9, 
+   3.895612054893276*^9}, {3.8956122631801543`*^9, 3.8956123745148935`*^9}, {
+   3.89561243488684*^9, 3.895612445182227*^9}, {3.8956135252108793`*^9, 
+   3.895613528027671*^9}, {3.895613911014121*^9, 3.895613961375515*^9}, {
+   3.8956140937477207`*^9, 3.8956141444651184`*^9}, 3.89561420368285*^9, {
+   3.895614465912738*^9, 3.895614514900055*^9}, {3.8956151302994795`*^9, 
+   3.895615168051259*^9}, {3.895615203426404*^9, 3.8956152194677453`*^9}, {
+   3.8956154373878117`*^9, 3.895615488404291*^9}, 3.895615521200368*^9, {
+   3.895620833793832*^9, 3.89562084770148*^9}, {3.8956208781046233`*^9, 
+   3.895620978531044*^9}, {3.895621090030837*^9, 3.895621121136354*^9}, {
+   3.8956213067608843`*^9, 3.895621337835868*^9}, {3.895621384186205*^9, 
+   3.895621400308463*^9}, {3.8956214493041797`*^9, 3.895621486989713*^9}, {
+   3.895621575893507*^9, 3.8956216945012283`*^9}, {3.895621747982277*^9, 
+   3.8956217692219777`*^9}, {3.8956218183028812`*^9, 3.895621877381248*^9}},
+ CellLabel->"In[120]:=",
+ CellID->191666515,ExpressionUUID->"3cc9e835-50d3-4b2f-b912-3663b908fc99"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"-", "1"}], "0", "0", "0"},
+     {"0", "1", "0", "0"},
+     {"0", "0", 
+      SuperscriptBox["r", "2"], "0"},
+     {"0", "0", "0", 
+      RowBox[{
+       SuperscriptBox["r", "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], "2"]}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.895621854270007*^9, 3.8956218713789024`*^9}},
+ CellLabel->"Out[123]//MatrixForm=",
+ CellID->625759725,ExpressionUUID->"a0ca12d9-4c57-4c7a-bcb4-f6391b29606d"]
+}, Open  ]],
+
+Cell["The conformal scalar factor is:", "ExampleText",
+ CellChangeTimes->{{3.8956220292716913`*^9, 3.8956220360376196`*^9}},
+ CellID->9592673,ExpressionUUID->"6f02e356-b2a3-4e61-9961-52e99a14ddf4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"comp", "[", 
+   RowBox[{"[", 
+    RowBox[{"2", ",", "2"}], "]"}], "]"}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.8956220377136335`*^9, 3.895622073076345*^9}},
+ CellLabel->"In[127]:=",
+ CellID->240344932,ExpressionUUID->"79c79452-d5c3-4569-a90f-72ffb055d461"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"4", " ", 
+   SuperscriptBox[
+    RowBox[{"a", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"r", "-", "\[Tau]"}], "]"}]}], "+", 
+      RowBox[{"ArcTan", "[", 
+       RowBox[{"r", "+", "\[Tau]"}], "]"}]}], "]"}], "2"]}], 
+  RowBox[{
+   SuperscriptBox["r", "4"], "-", 
+   RowBox[{"2", " ", 
+    SuperscriptBox["r", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      SuperscriptBox["\[Tau]", "2"]}], ")"}]}], "+", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      SuperscriptBox["\[Tau]", "2"]}], ")"}], "2"]}]]], "Output",
+ CellChangeTimes->{{3.8956220420868196`*^9, 3.895622073677297*^9}},
+ CellLabel->"Out[127]=",
+ CellID->306313402,ExpressionUUID->"768028d3-2ae7-461d-97e6-aa2739b9a0d1"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->51654585,ExpressionUUID->"ccd277b2-8ca9-4908-84b6-cd6191ed842c"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"41c5e3b0-1a5d-4cff-bbdd-618963f1e22a"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"774be8c0-936e-4ed5-aa5c-d3236b0c0d21"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"fc7aea14-15ee-4ad3-9099-4ade6cb25ef0"]
+}], "History",
+ CellID->760696195,ExpressionUUID->"4324e6b0-77ea-43e5-9bf5-55caca22fa80"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Categorization",
+ Cell[BoxData[
+  TemplateBox[{"Metadata", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Metadata such as page URI, context, and type of documentation page.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "c1cd8880-b1cf-4b0c-9c60-ac0fbea28192"]
+}], "CategorizationSection",
+ CellID->307981478,ExpressionUUID->"c68e351c-43af-4efd-a8f3-13bce8d1e785"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->316354144,ExpressionUUID->"771f31f4-0986-4e97-b2a3-f18bbb974a7f"],
+
+Cell["BowenPing/STensor", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->222770460,ExpressionUUID->"d9f833d4-702e-4f12-b26b-879d059847e2"],
+
+Cell["BowenPing`STensor`", "Categorization",
+ CellLabel->"Context",
+ CellID->131485172,ExpressionUUID->"ff65442f-5ea3-4882-bf6b-3d9b17b182e0"],
+
+Cell["BowenPing/STensor/ref/SCoordinateTransform", "Categorization",
+ CellLabel->"URI",
+ CellID->834414418,ExpressionUUID->"1c865617-5303-4800-9802-0048f53f4862"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->943060,ExpressionUUID->"99b0ab35-06e7-4c27-9399-58335aba4e86"],
+
+Cell["XXXX", "Keywords",
+ CellID->32824052,ExpressionUUID->"48be1e68-7076-47e5-b402-56e5279f09fa"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->548465084,ExpressionUUID->"53460abd-2c9a-41f4-aece-cdc87bd37e7f"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1474159,ExpressionUUID->"8794cbb9-a081-4875-a66c-b450aca102b9"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->451878944,ExpressionUUID->"5c29e5a2-9af9-496f-ba93-2d92d696f00c"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->241773818,ExpressionUUID->"4f9541e3-445a-4cd9-a609-9cb9b3043e9e"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->196820226,ExpressionUUID->"a92a7c38-78e8-4d79-b7ec-50126f7a929c"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1141.2, 579.6},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules-><|"Paclet" -> "BowenPing/STensor"|>,
+CellContext->"Global`",
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (June 3, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"9993d136-7fcc-4187-aa74-063eb81dfb40"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[29553, 817, 487, 13, 57, "ExtendedExamplesSection",ExpressionUUID->"df09de95-2a13-424e-97b0-017fe5512c1a",
+   CellTags->"ExtendedExamples",
+   CellID->214518045]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 47610, 1313}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 117, 1, 74, "ObjectName",ExpressionUUID->"bad74753-be64-43b8-8a9e-88e6964ab593",
+ CellID->161316280],
+Cell[700, 25, 2324, 73, 122, "Usage",ExpressionUUID->"b0eba84e-214f-4ebc-af16-a3d52949dbf7",
+ CellID->341166333],
+Cell[3027, 100, 620, 18, 45, "Notes",ExpressionUUID->"3afad7ea-76c5-4ce4-a9df-d00a57f36091",
+ CellID->37865287],
+Cell[3650, 120, 745, 19, 27, "Notes",ExpressionUUID->"f1ae2d22-4197-4c5e-b2aa-8f8e70a130f2",
+ CellID->238140063]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4432, 144, 435, 12, 40, "TechNotesSection",ExpressionUUID->"8fdadcbc-9eb4-454c-aa02-5f7550fc26e3",
+ CellID->500275698],
+Cell[4870, 158, 99, 1, 19, "Tutorials",ExpressionUUID->"c2e7d9fe-bb9b-415c-86aa-fb8e11e0d4d0",
+ CellID->19077243]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5006, 164, 472, 13, 39, "RelatedLinksSection",ExpressionUUID->"07d4f34a-1ea4-4b00-a489-fc774d321bc5",
+ CellID->187785241],
+Cell[5481, 179, 103, 1, 19, "RelatedLinks",ExpressionUUID->"747e489f-8f6d-4c28-86b8-02a42af19fd9",
+ CellID->171127232]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5621, 185, 458, 13, 39, "SeeAlsoSection",ExpressionUUID->"a816ef61-ed7a-4795-a26c-6c39719c857c",
+ CellID->151149780],
+Cell[6082, 200, 2544, 60, 24, "SeeAlso",ExpressionUUID->"95fc9878-6c04-408a-9487-31fbd894b2a7",
+ CellID->91294115]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8663, 265, 183, 2, 39, "MoreAboutSection",ExpressionUUID->"4cf694e0-b110-4c23-a976-ec5891e1e053",
+ CellID->545024130],
+Cell[8849, 269, 99, 1, 19, "MoreAbout",ExpressionUUID->"32ac0169-a8b9-44d4-a31a-78cc461ab73a",
+ CellID->42652149]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8985, 275, 530, 14, 69, "ExamplesInitializationSection",ExpressionUUID->"e8bb706c-e05b-4425-81f3-e0854a07cd21",
+ CellID->349739102],
+Cell[9518, 291, 176, 3, 45, "ExampleInitialization",ExpressionUUID->"53920514-eedc-4290-8745-a719c975da45",
+ CellID->44445376]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9731, 299, 442, 12, 71, "PrimaryExamplesSection",ExpressionUUID->"d673efde-c1be-4195-b961-bf819be0d8a9",
+ CellID->161506670],
+Cell[10176, 313, 244, 4, 24, "ExampleText",ExpressionUUID->"86d15f0c-702e-4217-a25c-54262501c696",
+ CellID->670469960],
+Cell[10423, 319, 1108, 30, 78, "Input",ExpressionUUID->"7ec2c0a0-e819-494d-9fb1-88690fe8171e",
+ CellID->262388046],
+Cell[11534, 351, 539, 11, 41, "ExampleText",ExpressionUUID->"2bbb5633-0d0a-46b1-ae75-45915d8c0b1c",
+ CellID->271748911],
+Cell[12076, 364, 672, 16, 43, "Input",ExpressionUUID->"4e5a23d9-5c1d-49dc-aa67-cfe3b2e950cc",
+ CellID->180953804],
+Cell[12751, 382, 220, 2, 24, "ExampleText",ExpressionUUID->"f7911e35-d432-4752-a6ae-a802a21e3ea4",
+ CellID->277801903],
+Cell[CellGroupData[{
+Cell[12996, 388, 292, 5, 25, "Input",ExpressionUUID->"4ae23a46-d351-45bd-9e4b-29bffe4a253c",
+ CellID->1010323566],
+Cell[13291, 395, 8453, 177, 56, "Output",ExpressionUUID->"e6466a8f-a747-491d-8809-4c4933872b75",
+ CellID->3037037]
+}, Open  ]],
+Cell[21759, 575, 255, 5, 24, "ExampleText",ExpressionUUID->"9af17a16-7e54-42ce-a67d-3f371317fd48",
+ CellID->416606964],
+Cell[CellGroupData[{
+Cell[22039, 584, 592, 15, 43, "Input",ExpressionUUID->"1c32c769-076b-407f-8c2a-aa6d0d90108c",
+ CellID->182899575],
+Cell[22634, 601, 1163, 34, 71, "Output",ExpressionUUID->"e0b6b09c-ddc1-489b-b34e-d14095ee52f3",
+ CellID->302853981]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23834, 640, 541, 14, 43, "Input",ExpressionUUID->"383e7eca-ae5a-435a-bdd6-d0f8447a5e9c",
+ CellID->716899714],
+Cell[24378, 656, 847, 24, 58, "Output",ExpressionUUID->"47c915ab-2480-4857-b331-4b9924efee2a",
+ CellID->416156370]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25262, 685, 241, 5, 20, "ExampleDelimiter",ExpressionUUID->"a30679a7-68d5-45d3-97c6-9a6b5c6082bb",
+ CellID->47463216],
+Cell[25506, 692, 390, 8, 41, "ExampleText",ExpressionUUID->"1b41f2b5-05c0-4120-aa5d-9bb7418c7df8",
+ CellID->92240086],
+Cell[CellGroupData[{
+Cell[25921, 704, 587, 15, 43, "Input",ExpressionUUID->"3a100fb6-5623-4e58-bee7-21aca2a77609",
+ CellID->70938864],
+Cell[26511, 721, 1163, 34, 71, "Output",ExpressionUUID->"bea99fba-295a-4c1d-9b37-bb41b25f40c9",
+ CellID->295339603]
+}, Open  ]],
+Cell[27689, 758, 283, 5, 41, "ExampleText",ExpressionUUID->"6f65c24f-e0f0-40e1-91f9-f40bef61875c",
+ CellID->706544],
+Cell[CellGroupData[{
+Cell[27997, 767, 621, 16, 43, "Input",ExpressionUUID->"999bf59b-a4c0-40f9-9f9a-c863cd956d23",
+ CellID->409582919],
+Cell[28621, 785, 871, 25, 58, "Output",ExpressionUUID->"acbe777e-3069-4a66-8963-44084a76f988",
+ CellID->168060441]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29553, 817, 487, 13, 57, "ExtendedExamplesSection",ExpressionUUID->"df09de95-2a13-424e-97b0-017fe5512c1a",
+ CellTags->"ExtendedExamples",
+ CellID->214518045],
+Cell[30043, 832, 241, 5, 35, "ExampleSection",ExpressionUUID->"8e469e2f-c530-4e8f-b197-908cf928aedb",
+ CellID->415503623],
+Cell[30287, 839, 263, 5, 23, "ExampleSection",ExpressionUUID->"19d93b37-7c5b-4020-b057-21021034dc5e",
+ CellID->22175542],
+Cell[CellGroupData[{
+Cell[30575, 848, 243, 5, 23, "ExampleSection",ExpressionUUID->"e5bc17e8-6a0c-4605-80a6-63dedbbebd0f",
+ CellID->480369685],
+Cell[30821, 855, 245, 5, 26, "ExampleSubsection",ExpressionUUID->"60dd2e87-5468-4d29-80b1-bf1c6c7cd5c4",
+ CellID->49182752],
+Cell[31069, 862, 246, 5, 22, "ExampleSubsection",ExpressionUUID->"dd657672-b5dc-4686-ba02-c386f62d1636",
+ CellID->453902441]
+}, Open  ]],
+Cell[31330, 870, 248, 5, 35, "ExampleSection",ExpressionUUID->"f1828a64-c5e8-455a-bd41-3e484725bf8e",
+ CellID->157147930],
+Cell[31581, 877, 258, 5, 23, "ExampleSection",ExpressionUUID->"85165fc6-bc21-42ee-9508-fbe4705da2e1",
+ CellID->204876183],
+Cell[31842, 884, 250, 5, 23, "ExampleSection",ExpressionUUID->"6ac84d47-f8de-46c0-b107-9077b1ee9e6e",
+ CellID->48309787],
+Cell[32095, 891, 256, 5, 23, "ExampleSection",ExpressionUUID->"2e6146ee-1e2d-476c-9090-421aaa560c85",
+ CellID->209496844],
+Cell[CellGroupData[{
+Cell[32376, 900, 249, 5, 23, "ExampleSection",ExpressionUUID->"354fef2e-24d9-44a3-b865-3e7da9cba3f9",
+ CellID->108399697],
+Cell[CellGroupData[{
+Cell[32650, 909, 195, 2, 24, "ExampleSubsection",ExpressionUUID->"22978963-ef96-4b05-9d96-ad97b786a779",
+ CellID->109400453],
+Cell[32848, 913, 346, 6, 24, "ExampleText",ExpressionUUID->"2ccb6f3a-f1d4-4287-8b95-129174c75975",
+ CellID->104382750],
+Cell[33197, 921, 1983, 45, 96, "Input",ExpressionUUID->"b146fe68-7a69-445e-9897-b5b8679f0484",
+ CellID->503834814],
+Cell[35183, 968, 247, 4, 24, "ExampleText",ExpressionUUID->"caf937c5-d83a-44b5-a1e9-6cb53d77efb0",
+ CellID->627297442],
+Cell[CellGroupData[{
+Cell[35455, 976, 325, 7, 25, "Input",ExpressionUUID->"601b1570-fa9f-427c-988f-e7adf09e6cab",
+ CellID->573061561],
+Cell[35783, 985, 258, 5, 24, "Output",ExpressionUUID->"ac9c6422-7945-4720-80ac-4cdd5c19d45d",
+ CellID->365844551]
+}, Open  ]],
+Cell[36056, 993, 212, 2, 24, "ExampleText",ExpressionUUID->"99fb445c-75bc-4978-b666-1b977ab3af48",
+ CellID->353405104],
+Cell[36271, 997, 4058, 106, 153, "Input",ExpressionUUID->"1f438c7e-a44c-424f-8051-ed92ddb273cc",
+ CellID->60125417],
+Cell[40332, 1105, 277, 5, 24, "ExampleText",ExpressionUUID->"00e9f17a-1280-4f47-9d12-bd1a75864513",
+ CellID->28024992],
+Cell[CellGroupData[{
+Cell[40634, 1114, 1427, 24, 25, "Input",ExpressionUUID->"3cc9e835-50d3-4b2f-b912-3663b908fc99",
+ CellID->191666515],
+Cell[42064, 1140, 914, 26, 76, "Output",ExpressionUUID->"a0ca12d9-4c57-4c7a-bcb4-f6391b29606d",
+ CellID->625759725]
+}, Open  ]],
+Cell[42993, 1169, 197, 2, 24, "ExampleText",ExpressionUUID->"6f02e356-b2a3-4e61-9961-52e99a14ddf4",
+ CellID->9592673],
+Cell[CellGroupData[{
+Cell[43215, 1175, 305, 7, 25, "Input",ExpressionUUID->"79c79452-d5c3-4569-a90f-72ffb055d461",
+ CellID->240344932],
+Cell[43523, 1184, 817, 25, 48, "Output",ExpressionUUID->"768028d3-2ae7-461d-97e6-aa2739b9a0d1",
+ CellID->306313402]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44413, 1217, 109, 1, 72, "MetadataSection",ExpressionUUID->"ccd277b2-8ca9-4908-84b6-cd6191ed842c",
+ CellID->51654585],
+Cell[44525, 1220, 473, 11, 26, "History",ExpressionUUID->"4324e6b0-77ea-43e5-9bf5-55caca22fa80",
+ CellID->760696195],
+Cell[CellGroupData[{
+Cell[45023, 1235, 484, 13, 21, "CategorizationSection",ExpressionUUID->"c68e351c-43af-4efd-a8f3-13bce8d1e785",
+ CellID->307981478],
+Cell[45510, 1250, 134, 2, 35, "Categorization",ExpressionUUID->"771f31f4-0986-4e97-b2a3-f18bbb974a7f",
+ CellID->316354144],
+Cell[45647, 1254, 145, 2, 35, "Categorization",ExpressionUUID->"d9f833d4-702e-4f12-b26b-879d059847e2",
+ CellID->222770460],
+Cell[45795, 1258, 142, 2, 35, "Categorization",ExpressionUUID->"ff65442f-5ea3-4882-bf6b-3d9b17b182e0",
+ CellID->131485172],
+Cell[45940, 1262, 162, 2, 35, "Categorization",ExpressionUUID->"1c865617-5303-4800-9802-0048f53f4862",
+ CellID->834414418]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[46139, 1269, 107, 1, 21, "KeywordsSection",ExpressionUUID->"99b0ab35-06e7-4c27-9399-58335aba4e86",
+ CellID->943060],
+Cell[46249, 1272, 98, 1, 70, "Keywords",ExpressionUUID->"48be1e68-7076-47e5-b402-56e5279f09fa",
+ CellID->32824052]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[46384, 1278, 119, 1, 21, "TemplatesSection",ExpressionUUID->"53460abd-2c9a-41f4-aece-cdc87bd37e7f",
+ CellID->548465084],
+Cell[46506, 1281, 146, 2, 70, "Template",ExpressionUUID->"8794cbb9-a081-4875-a66c-b450aca102b9",
+ CellID->1474159],
+Cell[46655, 1285, 137, 2, 70, "Template",ExpressionUUID->"5c29e5a2-9af9-496f-ba93-2d92d696f00c",
+ CellID->451878944],
+Cell[46795, 1289, 135, 2, 70, "Template",ExpressionUUID->"4f9541e3-445a-4cd9-a609-9cb9b3043e9e",
+ CellID->241773818],
+Cell[46933, 1293, 137, 2, 70, "Template",ExpressionUUID->"a92a7c38-78e8-4d79-b7ec-50126f7a929c",
+ CellID->196820226]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
